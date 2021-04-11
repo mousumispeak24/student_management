@@ -5,20 +5,26 @@
       "name": "M.S.Dhoni",
       "dob": "1986-07-24",
       "gender": "Male",
-      "course": "B. Tech"
+      "course": [
+        "B. Tech"
+      ]
     },
     {
       "name": "Virat Kohli",
       "dob": "1996-07-24",
       "gender": "Male",
-      "course": "B. Tech",
+      "course": [
+        "B. Tech"
+      ],
       "id": 2
     },
     {
       "name": "Saniya Mirza",
       "dob": "2006-07-24",
       "gender": "Female",
-      "course": "B. Tech",
+      "course": [
+        "B. Tech"
+      ],
       "id": 3
     }
   ]

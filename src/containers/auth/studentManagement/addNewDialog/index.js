@@ -58,7 +58,7 @@ const AddNewDialog = (props) => {
   ]);
   const [selectedOption, setSelectedOption] = useState("Male");
   const [course, setCourse] = useState(["B. Tech", "B. Com","B. Sc", "B. A"]);
-  const [selectedStatus, setSelectedStatus] = useState("B. Tech");
+  const [selectedStatus, setSelectedStatus] = useState(["B. Tech"]);
 
   const handelNameChange = (event) => {
     if (titleValidationError) {
@@ -193,7 +193,7 @@ const AddNewDialog = (props) => {
               <div className="margin-top-20">
                 <InputLabel className="labelStyleInsideDiv">Course</InputLabel>
                 <FormControl className="width-100per">
-                  <Select value={selectedStatus} onChange={handleStatusChange}>
+                  <Select value={selectedStatus} onChange={handleStatusChange} multiple>
                     {course.map((courseOption, index) => {
                       return (
                         <MenuItem key={index} value={courseOption}>
