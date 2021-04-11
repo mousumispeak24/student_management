@@ -1,0 +1,74 @@
+.center-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialog-heading {
+  font-size: 20px !important;
+}
+.padding-left-15 {
+  padding-left: 15;
+}
+
+.close-icon {
+  background-color: #ededed;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  cursor: pointer;
+}
+.margin-right-20 {
+  margin-right: 20;
+}
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+.margin-top-20 {
+  margin-top: 20;
+}
+.cancel-btn-style {
+  background: linear-gradient(to top right, #a23737, #ff7878 100%) !important;
+  height: 35px !important;
+  color: #ffffff !important;
+  text-transform: capitalize !important;
+  outline: none !important;
+  font-weight: 500;
+  font-size: 14px !important;
+  border-color: #009197;
+  box-shadow: none;
+  border-radius: 4px;
+}
+.margim-left-15 {
+  margin-left: 45;
+}
+.width-20per {
+  width: 20%;
+}
+/* remove up and down arrow in text input for type number */
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.labelStyle{
+  margin-top: 10px;
+  margin-bottom: -13px;
+}
+.labelStyleInsideDiv{
+  margin-top: 10px;
+}
+.MuiDialogContent-root:first-child{
+  width: 300px;
+}

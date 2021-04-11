@@ -1,0 +1,10 @@
+.table {
+  min-width: 500px;
+}
+.root {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.drawer {
+    width: 500px;
+}
