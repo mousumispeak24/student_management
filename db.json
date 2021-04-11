@@ -26,6 +26,26 @@
         "B. Tech"
       ],
       "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Test",
+      "dob": "1996-07-24",
+      "gender": "Male",
+      "course": [
+        "B. Com"
+      ],
+      "age": 24
+    },
+    {
+      "id": 5,
+      "name": "Test2",
+      "dob": "2008-06-17",
+      "gender": "Male",
+      "course": [
+        "B. Tech"
+      ],
+      "age": 12
     }
   ]
 }

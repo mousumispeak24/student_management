@@ -5,7 +5,7 @@ export const gateStudentData = async (data) => {
   try {
     const headers = getDefaultHeaders();
     const response = await axios.get(
-      `http://localhost:3002/students?_order=asc&_page=${data.pageIndex}&_limit=${data.pageSize} `,
+      `http://localhost:3002/students?_sort=name&_order=asc&_page=${data.pageIndex}&_limit=${data.pageSize} `,
       {
         headers,
       } 

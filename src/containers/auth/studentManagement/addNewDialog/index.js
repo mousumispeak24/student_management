@@ -33,7 +33,7 @@ const AddNewDialog = (props) => {
       setRewordPointValidationError(true);
       isValid = false;
     }
-    if(getAge(dob) <= 8){
+    if(dob && getAge(dob) <= 8){
       setAgeValidationError(true)
       isValid = false;
     }
@@ -64,14 +64,15 @@ const AddNewDialog = (props) => {
     if (titleValidationError) {
       setTitleValidationError(false);
     }
-    if(ageValidationError){
-      setAgeValidationError(false);
-    }
+   
     setRewordTitle(event.target.value);
   };
   const handelRewordPointChange = (event) => {
     if (rewordPointValidationError) {
       setRewordPointValidationError(false);
+    }
+    if(ageValidationError){
+      setAgeValidationError(false);
     }
     setdob(event.target.value);
   };
