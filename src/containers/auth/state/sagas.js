@@ -55,6 +55,7 @@ function* getStudentDataHandler(action) {
           isLoading: false,
           successMessage: "get data",
           totalPageCount: 1,
+          initialPage:payload.pageIndex,
         })
       );
     }

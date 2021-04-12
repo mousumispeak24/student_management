@@ -26,14 +26,14 @@ import { Search as SearchIcon } from "@material-ui/icons";
 import AddNewDialog from "./addNewDialog";
 import Edit from "@material-ui/icons/Edit";
 import DeleteIcon from '@material-ui/icons/Delete';
+import CopyrightIcon from '@material-ui/icons/Copyright';
 import MessagePopup from "./messagePopup"
 const StudentManagement = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
-  const { data,totalPageCount,successMessage,successMessageToShow  } = useSelector(
+  const { data,totalPageCount,successMessage,successMessageToShow,initialPage  } = useSelector(
     (state) => state.auth
   );
-  console.log("data.............", data);
   //set hooks
   const [selectPageNumber, setSelectPageNumber] = useState(5);
   const [initialPageNumber, setInitialPageNumber] = useState(0);
@@ -46,21 +46,27 @@ const StudentManagement = (props) => {
   );
   const [message,setMessage] = useState("");
   const [deleteData,setDeleteData] = useState("");
+  const[pageSelect, setPageSelect] = useState(0);
  
+  console.log("initialPage..",initialPage);
   useEffect(() => {
+    console.log("pageSelect...........1",pageSelect);
     // effect
     const payloade = {
-      pageIndex: initialPageNumber,
+      pageIndex:pageSelect > 0 ? pageSelect : initialPageNumber,
       pageSize: selectPageNumber,
       searchKey: searchData.trim(),
     };
     dispatch(getStudentManagementSaga(payloade));
-    return () => {};
+    setInitialPageNumber(0)
+    return () => {
+    };
   }, []);
   useEffect(() => {
+    console.log("pageSelect...........2",pageSelect);
     // effect
     const payloade = {
-      pageIndex: initialPageNumber,
+      pageIndex: pageSelect > 0 ? pageSelect : initialPageNumber,
       pageSize: selectPageNumber,
       searchKey: searchData.trim(),
     };
@@ -69,6 +75,7 @@ const StudentManagement = (props) => {
   }, [successMessage]);
   
   useEffect(() => {
+    console.log("pageSelect...........3",pageSelect);
     setMessage(successMessageToShow)
   return () => {};
 },[successMessageToShow]);
@@ -107,6 +114,7 @@ const StudentManagement = (props) => {
 
   const handelPageChange = (event) => {
     setInitialPageNumber(event.selected);
+    setPageSelect(event.selected + 1)
     const payloade = {
       pageIndex: event.selected + 1,
       pageSize: selectPageNumber,
@@ -150,9 +158,20 @@ const StudentManagement = (props) => {
 
   const handelDeleteclick = (payload) => {
     setMessage("Are you want to delete the data ?");
-    setDeleteData(payload)
+    setDeleteData(payload);
+    // setInitialPageNumber(0)
   //  dispatch(deleteSagaAction(payload.studentData));
   };
+  const handelCopyclick = (payload) =>{
+    const data ={
+      name: payload.studentData.name,
+      dob:payload.studentData.dob,
+      gender: payload.studentData.gender,
+      course: payload.studentData.course,
+      age:getAge(payload.studentData.dob) 
+    };
+    dispatch(addNewSagaRewordRule(data));
+  }
   const handelDeleteSubmit = () => {
    dispatch(deleteSagaAction(deleteData.studentData));
    setMessage("");
@@ -256,6 +275,13 @@ const StudentManagement = (props) => {
                               >
                                 <DeleteIcon color="secondary" />
                               </span>
+                              <span
+                                title="Copy Product"
+                                onClick={() => handelCopyclick({ studentData })}
+                                className="deleteButton"
+                              >
+                                <CopyrightIcon style={{ color: "blue" }}/>
+                              </span>
                             </TableCell>
                           </TableRow>
                         ))
@@ -291,6 +317,7 @@ const StudentManagement = (props) => {
                           containerClassName={"pagination"}
                           subContainerClassName={"pages pagination"}
                           activeClassName={"active"}
+                          initialSelected ={initialPageNumber}
                         />
                       </div>
                     </TableRow>

@@ -5,12 +5,9 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 import studentManagementContainer from "../auth/studentManagement";
-import ProtectedRoute from "../../components/protectedRoute";
 const RootContainer = () => {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   return (
     <Router>

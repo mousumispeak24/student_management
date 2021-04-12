@@ -11,7 +11,8 @@ const initialState = {
   totalPageCount:0,
   isLoading:false,
   successMessage:"",
-  successMessageToShow:""
+  successMessageToShow:"",
+  initialPage:0
 };
 
 export const studentDataReducer = (state = initialState, action) => {
